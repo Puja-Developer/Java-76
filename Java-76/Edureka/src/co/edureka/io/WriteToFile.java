@@ -14,9 +14,10 @@ public class WriteToFile {
 		byte[] b = data.getBytes();
 		fout.write(b);
 		System.out.println("file saved");		
+		
 		fout.close();
 		
-		FileWriter fw = new FileWriter("src/co/edureka/io/edureka_1.txt");
+		FileWriter fw = new FileWriter("src/co/edureka/io/edureka_1.xls");
 		fw.write(data);
 		fw.close();
 		System.out.println("file saved");
