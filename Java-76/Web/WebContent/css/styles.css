@@ -1,0 +1,32 @@
+@charset "ISO-8859-1";
+body{
+	background-color:aquamarine;
+}
+#wrapper{
+	margin:100px auto;
+	width:430px;
+	padding:10px;
+	background:linear-gradient(45deg,black,darkred);
+	color:white;
+	border-radius:15px;
+	box-shadow:0 0 10px black;
+}
+table{
+	width:100%;
+}
+input,table{
+	font-size:20px;
+}
+tr{
+	height:45px;
+}
+input[type='submit']{
+	background:transparent;
+	color:white;
+	border:1px solid white;
+	padding:5px 35px;
+	border-radius:20px;
+}
+input[type='submit']:hover{
+	box-shadow:0 0 10px white;
+}
