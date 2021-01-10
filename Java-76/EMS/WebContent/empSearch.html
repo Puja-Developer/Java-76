@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<style>
+#wrapper {
+	width: 450px;
+	text-align: center;
+	margin: 100px auto;
+	font-size: 18px;
+	box-shadow: 0 0 10px black;
+	border-radius: 15px;
+	text-align: center;
+	padding: 10px;
+	background-color: aquamarine;
+	height: 250px;
+}
+
+table {
+	width: 100%;
+	margin: auto;
+}
+tr{
+ height:50px;
+}
+input {
+	font-size: 20px;
+}
+</style>
+<title>Emp Search</title>
+</head>
+<body>
+	<div id="wrapper">
+		<h3>EMPLOYEE SEARCH</h3>
+		<table>
+			<tr>
+				<td><input type="text" id="txtEmpNo" size=20 autofocus
+					placeholder="enter empno" onblur="fun(this.value)"></td>
+			</tr>
+			<tr>
+				<td><span id="name_label"></span></td>
+			</tr>
+			<tr>
+				<td><span id="sal_label"></span></td>
+			</tr>
+		</table>
+	</div>
+	<script type="text/javascript">
+		let xhr;
+		function fun(empno) {
+			//create XMLHttpRequest
+			xhr = new XMLHttpRequest();			
+			
+			//privide the connection details
+			xhr.open("GET", "search?eno=" + empno, true); //true- asynchronous communication
+			
+			//register a call back function for XHR state changes
+			xhr.onreadystatechange = fun1;
+
+			//send request
+			xhr.send();
+		}
+
+		function fun1() {
+			//alert('XHR Status = '+ xhr.readyState)
+			let name = '____________';
+			let sal = '____________';
+
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				//get the response text
+				let response = xhr.responseText;
+				if (response.length > 0) {
+					//convert response to JSON Object
+					let jsonEmp = JSON.parse(response);
+
+					//get the value of the respective keys from JSON object
+					name = jsonEmp.ename;
+					sal = jsonEmp.salary;
+				}
+				//to show the name & sal value
+				document.querySelector('#name_label').innerText = name;
+				document.querySelector('#sal_label').innerText = sal;
+			}
+		}
+	</script>
+</body>
+</html>
