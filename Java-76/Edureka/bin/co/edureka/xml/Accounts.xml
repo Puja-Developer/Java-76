@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bank>
+ <account type="SA">
+  <acno>100251452</acno>
+  <name>Jefferey</name>
+  <balance>25000.00</balance>
+ </account> 
+ <account type="SA">
+  <acno>100251453</acno>
+  <name>Chris</name>
+  <balance>15500.50</balance>
+ </account> 
+  <account type="CA">
+  <acno>200251454</acno>
+  <name>Charles</name>
+  <balance>45250.00</balance>
+ </account> 
+ 
+</bank>
